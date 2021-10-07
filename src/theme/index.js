@@ -1,8 +1,9 @@
 // Global default theme object
 
 export default {
-    primaryColor: 'white',
-    secondaryColor: 'red',
-    backgroundColor: 'black',
+    primaryColor: 'red',
+    secondaryColor: 'blue',
+    backgroundColor: 'lightgray',
+    // backgroundColor: 'black',
     // breakpointMobile: '(max-width: 550px)'
 }
