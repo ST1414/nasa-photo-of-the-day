@@ -7,7 +7,7 @@ import { NASA_URL } from './constants';
 function App() {
   
   // SLICE OF STATE (1)
-  const [ pod, setPod ] = useState({});
+  const [ pod, setPod ] = useState(null);
   // const [ load, setLoad ] = useState(''); // ERROR HANDLING
 
   // USE EFFECT + API CALL (3)
@@ -24,6 +24,7 @@ function App() {
   
   // // Display a loading message while the data is fetching
   // if (!pod) return <h3>Loading...</h3>;
+
   // // Display your component as normal after the data has been fetched
   // return (
   //   {/* your normal JSX here */}
@@ -34,11 +35,16 @@ function App() {
   return (
     <div className="App">
       <h1>NASA PICTURE OF THE DAY</h1>
-      <h2>{pod.title}</h2>
-      <p>By {pod.copyright}</p>
-      <img src={pod.url} alt={pod.title}/>
-      <p>{pod.explanation}</p>
-      {/* ERROR HANDLING? */}
+      { pod ? (
+        <>
+          <h2>{pod.title}</h2>
+          <p>By {pod.copyright}</p>
+          <img src={pod.url} alt={pod.title}/>
+          <p>{pod.explanation}</p>
+        </>
+      ): <h3>Loading...</h3>
+    }
+      
     </div>
   );
 }
