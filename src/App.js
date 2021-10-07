@@ -6,36 +6,50 @@ import { NASA_URL } from './constants';
 // ----- STEP 6: Import styled + keyframes components; create our new Element & Keyframe
 import styled, { keyframes } from 'styled-components';
 
+
 const StyledPod = styled.div`
   
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* align-content: center; */
-  padding: 5px;
-  margin: auto;
 
-  background-color: ${props => props.theme.backgroundColor};
-  width: 95%;
- 
   h1 {
-    color: ${props => props.theme.primaryColor};
-    /* text-align: center; */
-    border: 2px red solid;
+    text-align: center;
   }
+`
+
+const StyledSubPod = styled.div`
+  *{
+    /* border: 1px red solid; */
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 95%;
+  margin: auto;
+  padding: 10px;
+
+  background-color: ${props => props.theme.subBackgroundColor};
+  border: 2px black solid;
+  border-radius: 10px;
+
   h2 {
     color: ${props => props.theme.secondaryColor};
-    /* text-align: center; */
   }
   h3 {
     color: ${props => props.theme.secondaryColor};
-    /* text-align: center; */
   }
   p {
     color: ${props => props.theme.secondaryColor};
   }
+  img {
+    border-radius: 10px;
+    margin: 10px;
+    max-width: 100%;
+    object-fit: cover;
+  }
 `
-
 
 
 function App() {
@@ -56,20 +70,35 @@ function App() {
   if (!pod) return <h3>Loading...</h3>;
 
   return (
+    // <div className='App'></div>
+    // <div></div>
     <StyledPod>
-      
       <h1>NASA PICTURE OF THE DAY</h1>
-      <h2>{pod.title}</h2>
-      <h3>By {pod.copyright}</h3>
-      <img src={pod.url} alt={pod.title}/>
-      <p>{pod.explanation}</p>
-
+      <StyledSubPod>
+        <h2>{pod.title}</h2>
+        <h3>By {pod.copyright}</h3>
+        <img src={pod.url} alt={pod.title}/>
+        <p>{pod.explanation}</p>
+      </StyledSubPod>
+      
     </StyledPod>
   );
 
 }
 
 export default App;
+
+
+{/* <StyledPod foo='bar'>
+<h1>NASA PICTURE OF THE DAY</h1>
+<StyledSubPod>
+  <h2>{pod.title}</h2>
+  <h3>By {pod.copyright}</h3>
+  <img src={pod.url} alt={pod.title}/>
+<p>{pod.explanation}</p>
+</StyledSubPod>
+
+</StyledPod> */}
 
 
 // <StyledPod>
