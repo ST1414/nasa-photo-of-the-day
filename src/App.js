@@ -8,7 +8,6 @@ function App() {
   
   // SLICE OF STATE (1)
   const [ pod, setPod ] = useState(null);
-  // const [ load, setLoad ] = useState(''); // ERROR HANDLING
 
   // USE EFFECT + API CALL (3)
   useEffect( () => {
@@ -22,16 +21,10 @@ function App() {
       })
   }, [])
   
-  // // Display a loading message while the data is fetching
+  // Can run a loading note here OR in the render
   // if (!pod) return <h3>Loading...</h3>;
 
-  // // Display your component as normal after the data has been fetched
-  // return (
-  //   {/* your normal JSX here */}
-  // );
 
-
-  // REACT RENDER ... USE API DATA (2)(4)
   return (
     <div className="App">
       <h1>NASA PICTURE OF THE DAY</h1>
@@ -47,6 +40,7 @@ function App() {
       
     </div>
   );
+
 }
 
 export default App;
